@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TODO APP</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="TODO APP" />
+  <link href="https://cdn.jsdelivr.net/npm/modern-normalize@v3.0.1/modern-normalize.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="favicon.png">
+  <script type="module" src="script.js"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+<body>
+  <header>
+    <h2 id="navbar-title">TODO APP</h2>
+  </header>
+  <main x-data="{ todoLists: [{ name: 'abc', tasks: ['abc', 'def'], doneTasks: [] }] }">
+    <template x-for="todoList in todoLists">
+      <div class="todo-list-container">
+        <div class="todo-list-top">
+          <h3 class="todo-list-name" x-text="todoList.name">Homework</h3>
+          <div class="todo-list-top-btns">
+            <button>NAME</button>
+            <button>+</button>
+            <button>X</button>
+          </div>
+        </div>
+        <ul class="todo-list">
+          <template x-for="todoEntry in todoList.tasks">
+            <li class="todo-list-entry">
+              <div x-text="todoEntry"></div>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </template>
+  </main>
+</body>
+</html>
